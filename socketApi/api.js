@@ -10,7 +10,7 @@ io.on('connection',function(socket){
     console.log('user connected');
 
     //disconnect user
-    socket.io('disconnect',function(){
+    socket.on('disconnect',function(){
         console.log('hey,You are disconnected');
     })
 })
