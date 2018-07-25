@@ -1,0 +1,19 @@
+{
+  "name": "socketapi",
+  "version": "1.0.0",
+  "description": "Api that connects a user and disconnects within a given time",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dathobek/SocketApi.git"
+  },
+  "author": "David Athobe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dathobek/SocketApi/issues"
+  },
+  "homepage": "https://github.com/dathobek/SocketApi#readme"
+}
