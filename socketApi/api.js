@@ -9,6 +9,11 @@ app.get('/',function(req,res){
 io.on('connection',function(socket){
     console.log('user connected');
 
+    //sending massage after timeout of 4secs
+    setTimeout (function(){
+        socket.send('Sends a massage 4seconds after connection')
+    },4000)
+
     //disconnect user
     socket.on('disconnect',function(){
         console.log('hey,You are disconnected');
