@@ -12,6 +12,8 @@
        socket.on('message',function(data){document.write(data)});
     //    Sending msg with custom Event
        socket.on('testerEvent',function(data){document.write(data.description)});
+    //    sending an event from a client using emit function
+       socket.emit('clientEvent','Sent an event from the client!')
     </script>
 </head>
 <body>

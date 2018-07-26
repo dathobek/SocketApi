@@ -19,6 +19,11 @@ io.on('connection',function(socket){
         socket.emit('testerEvent',{description:'A custom event named testerEvent'});
     },4000)
 
+    // Handling client event using the 'on function'
+    socket.on('clientEvent',function(data){
+      console.log(data);
+    });
+
     //disconnect user
     socket.on('disconnect',function(){
         console.log('hey,You are disconnected');
