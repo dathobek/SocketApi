@@ -14,6 +14,11 @@ io.on('connection',function(socket){
         socket.send('Sends a massage 4seconds after connection')
     },4000)
 
+    //Sending a message using custom event
+    setTimeout(function(){
+        socket.emit('testerEvent',{description:'A custom event named testerEvent'});
+    },4000)
+
     //disconnect user
     socket.on('disconnect',function(){
         console.log('hey,You are disconnected');
