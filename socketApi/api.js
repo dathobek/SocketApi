@@ -6,6 +6,7 @@ app.get('/',function(req,res){
     res.sendfile('index.html');
 })
 
+// For Hello world display and even handling!
 io.on('connection',function(socket){
     console.log('user connected');
 
@@ -29,6 +30,32 @@ io.on('connection',function(socket){
         console.log('hey,You are disconnected');
     })
 })
+
+//a diffenrent connection for broadcast
+var client= 0;
+io.on('connection',function(socket){
+     client ++;
+    io.sockets.emit('broadcast',{description:client +' Client Connected'});
+    socket.on('disconnet',function(){
+      client --;
+      io.sockets.emit('broadcast',{description: client + 'Client connected'})   
+    })
+
+})
+
+//Sending Broadcast and welcome message to new client
+  var clients =0;
+  io.on('connection',function(socket){
+      clients++;
+      socket.emit('newclientconnect',{description:'Hey, Welcome Home'});
+      //after welcoming our new clients lets broadcast to others
+      socket.broadcast.emit('newclientconnect',{description: clients +'clients connected'})
+      // when user disconnets
+      socket.on('disconnect',function(){
+          clients--;
+          socket.broadcast.emit('newclientconnect',{description: clients+'clients connected'})
+      })
+  })
 
 http.listen(3500,function(){
     console.log('hey am listening!')

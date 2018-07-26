@@ -15,4 +15,10 @@ server and socket.io.Added a script source to socket.io in my index.html.
 ## Event handler
 Going back to the api.js file,you will observe how i handled both a default Event and a Custom event.I also used the 'emit event' from the client,an emit function on the socket object in index.html file.
 
+## Sending Broadcast
+We are going to be using 'io.sockets.emit' function to send broadcast to connected clients as illustrated 
+in my api.js file. All these changes are commented to enable programmers find ways around the code.
+Also edited the index.html file(comment will direct you).
+  New client was also added and broadcasted to..the comments on both api.js and index.html should guide you hopefully.
+
 

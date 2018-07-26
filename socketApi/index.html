@@ -10,10 +10,24 @@
     <script>
        var  socket = io();
        socket.on('message',function(data){document.write(data)});
+
     //    Sending msg with custom Event
        socket.on('testerEvent',function(data){document.write(data.description)});
+
     //    sending an event from a client using emit function
        socket.emit('clientEvent','Sent an event from the client!')
+
+     // Sending broadcast to connected clients
+       socket.on('broadcast',function(data){
+           document.body.innerHTML='';
+           document.write(data.description);
+       })  
+
+     // New client event added,
+       socket.on('newclientconnect',function(data){
+           document.body.innerHTML='';
+           document.write(data.description);
+       })  
     </script>
 </head>
 <body>
