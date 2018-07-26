@@ -57,6 +57,13 @@ io.on('connection',function(socket){
       })
   })
 
+// Having your own name Space
+var nsp = io.of('myNameSpace')
+ nsp.on('connection',function(socket){
+  console.log('hey you are connected to your namespace');
+ nsp.emit('hi', 'Hello Everyone');
+})
+
 http.listen(3500,function(){
     console.log('hey am listening!')
 })

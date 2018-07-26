@@ -28,6 +28,13 @@
            document.body.innerHTML='';
            document.write(data.description);
        })  
+
+      // Connecting a client to name space created in api.js
+       var socket=io('/myNameSpace') ;
+       socket.on('hi',function(data){
+           document.body.innerHTML='';
+           document.write(data);
+       })
     </script>
 </head>
 <body>
